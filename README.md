@@ -2,6 +2,8 @@
 
 A 3D robot-themed web game built with React, Three.js, and Alibaba Cloud services.
 
+See it live: https://roboverse.humanless.app/
+
 ## Features
 
 - Interactive 3D robot building and customization
