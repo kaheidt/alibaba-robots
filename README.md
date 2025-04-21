@@ -10,7 +10,6 @@ See it live: https://roboverse.humanless.app/
 - Real-time robot battles with physics
 - Cloud-based save system using Alibaba Cloud OSS
 - Global leaderboards powered by ApsaraDB
-- Multiplayer capabilities through Alibaba Cloud services
 
 ## Prerequisites
 
