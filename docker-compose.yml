@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: roboverse-app
+    build: .
+    restart: always
+    ports:
+      - "3000:80"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=REDACTED
+      - DB_NAME=alibaba_robots
+      - ALIBABA_OSS_REGION=oss-us-west-1
+      - ALIBABA_OSS_BUCKET=roboverse-gamedata-bomboy
+      - ALIBABA_ACCESS_KEY_ID=REDACTED
+      - ALIBABA_ACCESS_KEY_SECRET=REDACTED
+    depends_on:
+      - db
+
+  db:
+    container_name: roboverse-db
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: alibaba_robots
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./server/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:

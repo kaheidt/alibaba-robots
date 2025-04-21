@@ -1,0 +1,368 @@
+.battle-mode {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 20px;
+  width: 380px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.battle-mode.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 300px;
+}
+
+.battle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.battle-header h2 {
+  margin: 0;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.exit-battle {
+  background-color: #aa0000;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.exit-battle:hover {
+  background-color: #dd0000;
+}
+
+.battle-arena {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.robot-stats {
+  flex: 1;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.robot-stats.player {
+  border-color: #0088ff;
+}
+
+.robot-stats.enemy {
+  border-color: #ff3300;
+}
+
+.robot-stats h3 {
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.battle-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  min-width: 120px;
+}
+
+.attack-button {
+  background-color: #ff3300;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.attack-button:hover:not(:disabled) {
+  background-color: #ff5500;
+}
+
+.attack-button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.move-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.move-button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.move-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.move-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.move-button.laser {
+  background-color: #ff3300;
+}
+
+.move-button.laser:hover:not(:disabled) {
+  background-color: #ff5500;
+}
+
+.move-button.shield {
+  background-color: #00aa00;
+}
+
+.move-button.shield:hover:not(:disabled) {
+  background-color: #00cc00;
+}
+
+.move-button.missile {
+  background-color: #aa00aa;
+}
+
+.move-button.missile:hover:not(:disabled) {
+  background-color: #cc00cc;
+}
+
+.battle-info {
+  margin: 15px 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+
+.battle-info h4 {
+  margin: 0 0 10px 0;
+  color: #00ff00;
+  text-align: center;
+}
+
+.move-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.move-info li {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: center;
+}
+
+.battle-log {
+  flex: 1;
+  min-height: 150px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.battle-log h4 {
+  margin: 0 0 10px 0;
+  text-align: center;
+  color: #00ff00;
+}
+
+.log-entries {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.log-entry {
+  font-size: 0.9rem;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.log-entry:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Robot selection styles */
+.battle-mode.selection h2 {
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  margin-top: 0;
+}
+
+.no-robots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  font-style: italic;
+  color: #aaa;
+}
+
+.robot-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.robot-card {
+  background-color: rgba(0, 20, 40, 0.6);
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid #333;
+}
+
+.robot-card h3 {
+  margin: 0 0 10px 0;
+  color: #0088ff;
+}
+
+.robot-card button {
+  background-color: #0088ff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.robot-card button:hover {
+  background-color: #00aaff;
+}
+
+/* Stats display */
+.stats-display {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-label {
+  width: 60px;
+  font-size: 0.8rem;
+  color: #ccc;
+  text-align: right;
+}
+
+.stat-bar {
+  flex: 1;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stat-value {
+  height: 100%;
+  background-color: #00aaff;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  transition: width 0.5s;
+}
+
+/* Health bar */
+.stat-row:first-child .stat-value {
+  background-color: #00cc00;
+}
+
+.battle-result-button {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+  animation: pulse 2s infinite;
+}
+
+.battle-result-button .click-hint {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+.battle-result-button.victory {
+  background-color: #00cc00;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.battle-result-button.victory:hover {
+  background-color: #00ee00;
+  transform: scale(1.05);
+}
+
+.battle-result-button.defeat {
+  background-color: #cc0000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.battle-result-button.defeat:hover {
+  background-color: #ee0000;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
